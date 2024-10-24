@@ -8,7 +8,12 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "test": "jest --watchAll",
+    "pods": "cd example && pod-install --quiet",
+    "test:eslint": "echo \"\\033[33mRunning eslint check\" &&  eslint .",
+    "test:tsc": "echo \"\\033[33mRunning typescript check\" && tsc",
+    "postbuild": " rmdir /s /q dist\\core && rmdir /s /q dist\\ui && mkdir dist\\public && xcopy /s /e /i public dist\\public",
+    "test": "jest --coverage",
+    "test:ci": "jest --ci",
     "lint": "expo lint"
   },
   "jest": {
